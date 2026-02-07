@@ -12,26 +12,27 @@ return new class extends Migration
             $table->id();
 
             // 1. identification info
-            $table->string('station_id');          // ID OR Passkey
+            // $table->string('station_id');          // ID OR Passkey
             $table->string('data_source');         // 'ecowitt' OR 'wunderground'
 
             // 2. Main info
             $table->float('temperature_f')->nullable();
             $table->integer('humidity')->nullable();
+            $table->float('wind_direction')->nullable();
             $table->float('wind_speed_mph')->nullable();
             $table->float('pressure_inhg')->nullable();
             $table->float('rain_rate')->nullable();
             $table->float('solar_radiation')->nullable();
             $table->integer('uv_index')->nullable();
 
-            // 3. Raw Data
+            // 3. Raw Data for all other devices and info
             $table->json('raw_data');
 
             // 4. Time
             $table->timestamp('measured_at');
             $table->timestamps();
 
-//            $table->index(['station_id', 'measured_at']);
+            $table->index(['station_id', 'measured_at']);
         });
     }
 
