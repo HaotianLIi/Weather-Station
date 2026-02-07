@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\DB;
 |--------------------------------------------------------------------------
 */
 
-// ECOWITT API
+// Ecowitt API
 Route::post('/data/report', function(Request $request) {
     // Record raw data
     $rawData = $request->all();
 
     $data = [
         'station_id' => $rawData['PASSKEY'],
-        'data_source' => ['ecowitt'],
+        'data_source' => 'ecowitt',
         'temperature_f' => $rawData['tempf'],
         'humidity' => $rawData['humidity'] ?? null,
         'wind_direction' => $rawData['winddir'] ?? null,
@@ -32,7 +32,7 @@ Route::post('/data/report', function(Request $request) {
     ];
 
     DB::table('weather_data')->insert($data);
-
+    return 'Succees';
 });
 
 //  WUNDERGROUND API
@@ -52,11 +52,11 @@ Route::get('/wunderground/updateweatherstation', function (Request $request) {
         'solar_radiation' => $rawData['solarradiation'] ?? null,
         'uv_index' => $rawData['UV'] ?? null,
         'raw_data' => json_encode($rawData),
-        'measured_at' => $rawData['dateutc'] === 'now' ? now() : ($rawData['dateutc'] ?? now()),
+        'measured_at' => $rawData['dateutc'],
         'created_at' => now(),
         'updated_at' => now(),
     ];
 
     DB::table('weather_data')->insert($data);
-
+    return "success\n";
 });

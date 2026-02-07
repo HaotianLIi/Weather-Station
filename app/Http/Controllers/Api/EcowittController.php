@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;  // ← Should be in Api namespace!
+namespace App\Models\Http\Controllers\Api;  // ← Should be in Api namespace!
 
-use App\Http\Controllers\Controller;
-use App\Models\WeatherData;
+use App\Models\Http\Controllers\Controller;
 use App\Models\Station;
+use App\Models\WeatherData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
