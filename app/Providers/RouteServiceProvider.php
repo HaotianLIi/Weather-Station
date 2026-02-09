@@ -29,7 +29,6 @@ class RouteServiceProvider extends ServiceProvider
 
             // API routes (stateless, rate limited)
             Route::middleware('api')
-                ->prefix('api')  // ← THIS LINE ADDS /api/ PREFIX!
                 ->group(base_path('routes/api.php'));
         });
     }
