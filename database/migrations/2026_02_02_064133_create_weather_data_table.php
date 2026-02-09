@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
 
             // 1. identification info
-            // $table->string('station_id');          // ID OR Passkey
+            $table->string('station_id');          // ID OR Passkey
             $table->string('data_source');         // 'ecowitt' OR 'wunderground'
 
             // 2. Main info
@@ -27,7 +27,6 @@ return new class extends Migration
 
             // 3. Raw Data for all other devices and info
             $table->json('raw_data');
-
             // 4. Time
             $table->timestamp('measured_at');
             $table->timestamps();
