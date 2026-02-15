@@ -8,6 +8,7 @@ Route::get('/health', function () {
         'status' => 'ok',
         'message' => 'Weather Station API is working',
         'time' => now()->toDateTimeString(),
+        'timezone' => now()->timezoneName,
     ]);
 });
 
