@@ -28,9 +28,9 @@ return new class extends Migration
             // 3. Raw Data for all other devices and info
             $table->json('raw_data');
             // 4. Time
-            $table->timestamp('measured_at');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestampTz('measured_at');
+            $table->timestampTz('created_at');
+            $table->timestampTz('updated_at');
 
             $table->index(['station_id', 'measured_at']);
         });

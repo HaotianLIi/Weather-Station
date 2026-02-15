@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('model')->default('GW1000');
             $table->string('frequency')->default('433M');
             $table->json('capabilities')->nullable(); // Store available sensors
-            $table->timestamp('first_seen')->nullable();
-            $table->timestamp('last_seen')->nullable();
-            $table->timestamps();
+            $table->timestampTz('first_seen')->nullable();
+            $table->timestampTz('last_seen')->nullable();
+            $table->timestampTz();
         });
     }
 
