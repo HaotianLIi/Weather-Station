@@ -17,19 +17,20 @@ return new class extends Migration
 
             // 2. Main info
             $table->float('temperature_f')->nullable();
-            $table->integer('humidity')->nullable();
-            $table->float('wind_direction')->nullable();
+            $table->integer('humidity_pct')->nullable();
+            $table->float('wind_direction_deg')->nullable();
             $table->float('wind_speed_mph')->nullable();
             $table->float('pressure_inhg')->nullable();
-            $table->float('rain_rate')->nullable();
-            $table->float('solar_radiation')->nullable();
+            $table->float('rain_rate_inph')->nullable();
+            $table->float('solar_radiation_wpm2')->nullable();
             $table->integer('uv_index')->nullable();
 
             // 3. Raw Data for all other devices and info
             $table->json('raw_data');
             // 4. Time
             $table->timestamp('measured_at');
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
 
             $table->index(['station_id', 'measured_at']);
         });
