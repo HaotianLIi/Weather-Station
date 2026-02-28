@@ -52,5 +52,5 @@ deploy:
     - main
   when: manual
   variables:
-    SERVER_USER: ubuntu@laravel-postgres
+    SERVER_USER: ubuntu
     SERVER_HOST: 170.75.168.206
