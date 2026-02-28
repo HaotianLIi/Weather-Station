@@ -47,10 +47,10 @@ deploy:
         echo 'Deployment complete!'"
   environment:
     name: production
-    url: https://YOUR_DOMAIN_HERE*******************
+    url: https://YOUR_DOMAIN_HERE
   only:
     - main
   when: manual
   variables:
-    SERVER_USER: YOUR_SERVER_USERNAME***************
-    SERVER_HOST: YOUR_SERVER_IP_OR_HOSTNAME*********
+    SERVER_USER: ubuntu@laravel-postgres
+    SERVER_HOST: 170.75.168.206
