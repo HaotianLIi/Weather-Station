@@ -5,9 +5,17 @@ stages:
 test:
   stage: test
   image: php:8.2-cli
+  services:
+    - postgres:15
+  variables:
+    DB_CONNECTION: pgsql
+    DB_HOST: postgres
+    DB_DATABASE: weather_station_test
+    DB_USERNAME: postgres
+    DB_PASSWORD: test
   before_script:
-    - apt-get update && apt-get install -y unzip
-    - docker-php-ext-install pdo_sqlite
+    - apt-get update && apt-get install -y unzip libpq-dev
+    - docker-php-ext-install pdo_pgsql
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
     - composer install --no-interaction --prefer-dist
     - cp .env.example .env
