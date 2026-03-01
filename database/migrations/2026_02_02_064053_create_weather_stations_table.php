@@ -19,7 +19,7 @@ return new class extends Migration
             $table->json('capabilities')->nullable(); // Store available sensors
             $table->timestampTz('first_seen')->nullable();
             $table->timestampTz('last_seen')->nullable();
-            $table->timestampTz();
+            $table->timestampsTz();
         });
     }
 

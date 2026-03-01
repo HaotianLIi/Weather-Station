@@ -20,8 +20,8 @@ Route::post('/data/report', function(Request $request) {
     // Record raw data
     $rawData = $request->all();
     try {
-        if($rawData["PASSKEY"] == null){
-           return "PASSKEY is required";
+        if(!isset($rawData['PASSKEY'])) {
+            return "PASSKEY is required";
         }
         $data = [
             'station_id' => $rawData['PASSKEY'],
@@ -60,7 +60,7 @@ Route::get('/weatherstation/updateweatherstation.php', function (Request $reques
     ]);
     try{
         $rawData = $request->all();
-        if($rawData['ID'] == null) {
+        if(!isset($rawData['ID'])) {
             return "\nstation_id is required";
         }
         $utcTime = $rawData['datautc'] ?? Carbon::now('UTC');
