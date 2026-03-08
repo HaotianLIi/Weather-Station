@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Http\Controllers\WeatherDataController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -97,3 +98,8 @@ Route::get('/health', function (Request $request) {
     // Just return success without DB operations
     return "success/n";
 });
+
+// ── Public Data Retrieval Endpoints ──────────────────────────────────
+Route::get('/weather/latest',   [WeatherDataController::class, 'latest']);
+Route::get('/weather/history',  [WeatherDataController::class, 'history']);
+Route::get('/weather/stations', [WeatherDataController::class, 'stations']);
