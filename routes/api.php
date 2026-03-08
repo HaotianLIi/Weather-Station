@@ -91,9 +91,7 @@ Route::get('/weatherstation/updateweatherstation.php', function (Request $reques
 });
 
 
-Route::get('/health', function (Request $request) {
-    \Log::info('Test route health', $request->all());
 
-    // Just return success without DB operations
-    return "success/n";
-});
+
+
+

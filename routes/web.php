@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+Route::get('/', function (Request $request) {
+    \Log::info('Testing the default page', $request->all());
+
+    return view('index');
+});
+
+
 Route::get('/health', function () {
     return response()->json([
         'status' => 'ok',
@@ -10,6 +17,11 @@ Route::get('/health', function () {
         'time' => now()->toDateTimeString(),
         'timezone' => now()->timezoneName,
     ]);
+});
+
+// Pull all weather data
+Route::get('/weather', function () {
+    return response()->json(DB::table('weather_data')->orderBy('measured_at', 'desc')->get());
 });
 
 
