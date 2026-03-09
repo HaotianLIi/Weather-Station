@@ -1,4 +1,4 @@
-name: Laravel
+name: Laravel - CI/CD
 
 on:
   push:
@@ -7,8 +7,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  laravel-tests:
-
+  # Test 1 : Run the app, make sure it works.
+  tests:
+    name: Test app
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +28,7 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/database.sqlite
+        touch database/database.postgres
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
         DB_CONNECTION: postgres
