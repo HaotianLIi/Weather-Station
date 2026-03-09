@@ -37,10 +37,10 @@ Route::get('/test', function () {
 
 // Testing CI/CD pipeline
 Route::get('/test2', function () {
-    \Log::info('update private key');
+    \Log::info('updated4 private key');
     return response()->json([
         'status' => 'success',
-        'message' => 'update private key',
+        'message' => 'updated4 private key',
         'time' => now()->toDateTimeString(),
     ]);
 });
