@@ -25,4 +25,12 @@ Route::get('/weather', function () {
 });
 
 
-
+// Testing CI/CD pipeline
+Route::get('/test', function () {
+    \Log::info('Testing the CI/CD pipeline');
+    return response()->json([
+        'status' => 'success',
+        'message' => 'CI/CD pipeline is working',
+        'time' => now()->toDateTimeString(),
+    ]);
+});
