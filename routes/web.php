@@ -37,7 +37,7 @@ Route::get('/test', function () {
 
 // Testing CI/CD pipeline
 Route::get('/test2', function () {
-    \Log::info('updated private key');
+    \Log::info('update private key');
     return response()->json([
         'status' => 'success',
         'message' => 'update private key',
