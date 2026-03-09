@@ -41,7 +41,7 @@ jobs:
     needs: tests
     steps:
       - name: Deploy to Production
-        uses: appleboy/ssh-action@v1
+        # uses: appleboy/ssh-action@v1
         uses: webfactory/ssh-agent@v0.9.0
         with : 
           host: ${{ secrets.SSH_HOST }}
