@@ -42,10 +42,11 @@ jobs:
     steps:
       - name: Deploy to Production
         uses: appleboy/ssh-action@v1
+        uses: webfactory/ssh-agent@v0.9.0
         with : 
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          # key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
             cd ${{ secrets.DEPLOY_PATH }}
